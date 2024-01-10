@@ -6,6 +6,7 @@ import Link from "next/link";
 import SignIn from "./SignIn";
 import { onAuthStateChangedHelper } from "@/utils/firebase";
 import { User } from "@firebase/auth";
+import Upload from "./Upload";
 
 type Props = {};
 
@@ -29,7 +30,8 @@ const Navbar = (props: Props) => {
           width={90}
           height={20}
         />
-      </Link>
+      </Link>  
+      {user && <Upload />}
       <SignIn user={user} />
     </nav>
   );
