@@ -12,8 +12,8 @@ export default async function Home() {
           <Image
             src={"/thumbnail.png"}
             alt="video"
-            width={120}
-            height={80}
+            width={240}
+            height={160}
             className="m-2.5"
           />
         </Link>
