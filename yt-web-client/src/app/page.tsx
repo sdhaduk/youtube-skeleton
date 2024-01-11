@@ -14,10 +14,12 @@ export default async function Home() {
             alt="video"
             width={240}
             height={160}
-            className="m-2.5"  
+            className="m-2.5"
           />
         </Link>
       ))}
     </div>
   );
 }
+
+export const revalidate = 30;
