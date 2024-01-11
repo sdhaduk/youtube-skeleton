@@ -14,8 +14,11 @@ This **video-processing-service** (VPS) takes a video file, downgrades the resol
 
 How it works:
 1. The service recieves a post request that contains data.name which should be the name of a video uploaded to a Google Cloud Storage bucket called raw-videos-bucket
+
 2. It downloads the video from the bucket and creates a document in Firestore that includes metadata and field called status equal to "processing"
+
 3. Then it uses FFmpeg to convert the video resolution to 360p and uploads the processed video into the Google Cloud Storage bucket called processed-videos-bucket
+
 4. Finally, it changes the status to "processed" in the Firestore document and returns a 200 response.
 
 This VPS was containerized using Docker and Google Cloud Build and was hosted on Google Cloud Run. I then created a Google Cloud Pub/Sub that would send the VPS a post request with the name of the file uploaded to the raw-videos-bucket. Now, anytime a video was uploaded to the raw-videos-bucket it would automatically be processed and uploaded into the processed-videos-bucket.
