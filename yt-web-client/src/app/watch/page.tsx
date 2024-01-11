@@ -1,11 +1,22 @@
-import React from 'react'
+"use client";
 
-type Props = {}
+import React from "react";
+import { useSearchParams } from "next/navigation";
+
+type Props = {};
 
 const page = (props: Props) => {
-  return (
-    <div>page</div>
-  )
-}
+  const searchParams = useSearchParams();
+  const videoSrc = searchParams.get("v");
+  const videoPrefix =
+    "https://storage.googleapis.com/sagar-yt-skeleton-processed-videos/";
 
-export default page
+  return (
+    <div>
+      <h1>Watch Page</h1>
+      <video controls src={videoPrefix + videoSrc} />
+    </div>
+  );
+};
+
+export default page;
