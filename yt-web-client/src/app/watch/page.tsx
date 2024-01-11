@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 
 type Props = {};
 
-const page = (props: Props) => {
+const Page = (props: Props) => {
   const searchParams = useSearchParams();
   const videoSrc = searchParams.get("v");
   const videoPrefix =
@@ -19,4 +19,4 @@ const page = (props: Props) => {
   );
 };
 
-export default page;
+export default Page;
